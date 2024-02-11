@@ -1,0 +1,22 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "backedn",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx test index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevJSter/backend.git"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "devjster",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DevJSter/backend/issues"
+  },
+  "homepage": "https://github.com/DevJSter/backend#readme"
+}
