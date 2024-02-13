@@ -28,3 +28,10 @@ function startServer() {
 app.listen(port, startServer);
 
 //app.listen runs infinitely just like setInterval and exposes the express app to the required port.
+
+function fun(req, res) {
+  var random = Math.random();
+  res.send('Random number is ' + random);
+}
+
+app.get('/random' , fun);
