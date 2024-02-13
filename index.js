@@ -1,10 +1,3 @@
-const express = recquire('express');
-const app = express();
-
-app.get('/', (req, res) => {
-  res.send('Hello World');
-});
-
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
-});
+const Express = recquire('express');
+const app = Express();
+const port = 3000;

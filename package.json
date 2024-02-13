@@ -1,22 +1,15 @@
 {
-  "name": "express",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "backedn",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx test index"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DevJSter/backend.git"
-  },
-  "keywords": [
-    "none"
-  ],
-  "author": "devjster",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/DevJSter/backend/issues"
-  },
-  "homepage": "https://github.com/DevJSter/backend#readme"
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
