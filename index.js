@@ -1,3 +1,11 @@
-const Express = recquire('express');
-const app = Express();
-const port = 3000;
+const fs = require('fs');
+
+function callback(err,data) {
+  console.log(data);
+
+}
+
+fs.readFile("a.txt", 'utf-8', callback);
+
+const express = require('express');
+const app = express();
