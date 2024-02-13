@@ -2,6 +2,13 @@ const express = require('express');
 const app = express();
 const port = 3000
 
+function middleware(req, res, next) {   //middleware function
+  console.log('Middleware called');
+  next(); //the control wil reach the next middleware or route handler
+}
+
+app.use(middleware); //app.use is used to mount the middleware function
+
 var calculateSum = function(counter) {
   var sum = 0;
   for (let i = 0; i <= counter; i++) {
@@ -57,3 +64,4 @@ app.delete('/deleteUser', deleteUser);
 app.listen(port, startServer);
 
 //app.listen runs infinitely just like setInterval and exposes the express app to the required port.
+//req.headers is an object that contains the headers sent by the client.(?counter=5&name=John)  //req.query is an object that contains the query string parameters.
