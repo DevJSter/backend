@@ -3,7 +3,7 @@ const app = express();
 const port = 3000
 
 function middleware(req, res, next) {   //middleware function
-  console.log('Middleware called');
+  console.log('Middleware called' + req.headers.counter);
   next(); //the control wil reach the next middleware or route handler
 }
 
@@ -11,14 +11,14 @@ app.use(middleware); //app.use is used to mount the middleware function
 
 var calculateSum = function(counter) {
   var sum = 0;
-  for (let i = 0; i <= counter; i++) {
-    sum += i;
+    for (let i = 0; i <= counter; i++) {
+      sum += i;
   }
   return sum;
 }
 
 function handleFirstRequest(req, res) {
-  var counter = req.query.counter;
+  var counter = req.headers.counter || 10;
   var finalsum = calculateSum(counter);
   res.send('Sum is ' + finalsum);
 }
@@ -43,7 +43,7 @@ function createUser(req, res) {
   res.send('User created');
 }
 
-app.post('/createUser', createUser);
+app.post('/createUser', handleFirstRequest);
 
 function updateUser(req, res) {
   var user = req.body;
