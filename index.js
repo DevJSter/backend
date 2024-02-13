@@ -30,6 +30,30 @@ function startServer() {
   console.log(`Example app listening on port ${port}`);
 }
 
+function createUser(req, res) {
+  var user = req.body;
+  console.log(user);
+  res.send('User created');
+}
+
+app.post('/createUser', createUser);
+
+function updateUser(req, res) {
+  var user = req.body;
+  console.log(user);
+  res.send('User updated');
+}
+
+app.put('/updateUser', updateUser);
+
+function deleteUser(req, res) {
+  var user = req.body;
+  console.log(user);
+  res.send('User deleted');
+}
+
+app.delete('/deleteUser', deleteUser);
+
 app.listen(port, startServer);
 
 //app.listen runs infinitely just like setInterval and exposes the express app to the required port.
