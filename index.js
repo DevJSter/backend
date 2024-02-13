@@ -11,8 +11,9 @@ var calculateSum = function() {
 }
 
 function handleFirstRequest(req, res) {
+  var counter = req.query.counter;
   var sum = 0;
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i <= counter; i++) {
     sum = sum+i;
   }
   res.send('Sum is ' + sum);
