@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
 const port = 3000
-
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 function middleware(req, res, next) {   //middleware function
-  console.log('Middleware called' + req.headers.counter);
+  console.log('Middleware called' + " " +  req.headers.counter);
   next(); //the control wil reach the next middleware or route handler
 }
 
@@ -18,6 +19,7 @@ var calculateSum = function(counter) {
 }
 
 function handleFirstRequest(req, res) {
+  console.log(req.body);
   var counter = req.headers.counter || 10;
   var finalsum = calculateSum(counter);
   res.send('Sum is ' + finalsum);
