@@ -44,6 +44,7 @@ function createUser(req, res) {
 }
 
 app.post('/createUser', handleFirstRequest);
+app.post('/create', createUser);
 
 function updateUser(req, res) {
   var user = req.body;
