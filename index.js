@@ -26,8 +26,14 @@ function handleFirstRequest(req, res) {
   // console.log(req.body); //Body parser helps to parse the data sent from the body to backend and it parses the json to simple data
   //As using the express we can only use the the headers to send the data to the backend ,,but Body-Parser changes everything
   var counter = req.body.counter || 10;
+  if(counter < 1000000){
+    
   var finalsum = calculateSum(counter);
   res.send('Sum is ' + finalsum);
+  }
+  else{
+    res.status(411).send("Youve sent a big number are ypu dumb?");
+}
 }
 
 app.get('/sum', handleFirstRequest)
@@ -73,3 +79,10 @@ app.listen(port, startServer);
 
 //app.listen runs infinitely just like setInterval and exposes the express app to the required port.
 //req.headers is an object that contains the headers sent by the client.(?counter=5&name=John)  //req.query is an object that contains the query string parameters.
+
+
+
+
+// Responses from the server other than data it can also return status codes, headers and body.
+
+
