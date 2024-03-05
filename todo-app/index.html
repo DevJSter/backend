@@ -6,31 +6,32 @@
     <title>Todo-App</title>
 </head>
 <script>
-function Press() {
-    var title = document.getElementById("title").value;
-    var description = document.getElementById("Description").value;
-    var data = {
-        title: title,
-        description: description
+
+function parsedResponse(response) {
+        console.log(response);
     }
-    fetch('http://localhost:3000/todo', {
+
+ function cb(resp) {
+        resp.json().then(parsedResponse);
+    }
+
+    function Press() {
+    fetch('http://localhost:3000/todos/', {
         method: 'POST',
+        body : JSON.stringify({
+            title: document.getElementById('title').value,
+            description: document.getElementById('Description').value
+        }),
         headers: {
             'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Success:', data);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
+        }
+    }).then(cb);
 }
+
 
 </script>
 <body>
+    Title : <br>
     <input type="text" id="title">
     <br><br>
     Todo Description: <br>
